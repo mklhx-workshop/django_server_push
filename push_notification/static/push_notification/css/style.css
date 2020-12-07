@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "CaviarDreams_Bold";
+    src: url("https://fonts.greenponik.com/caviar_dreams/CaviarDreams_Bold.ttf") format("truetype")
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "CaviarDreams_Bold", "Droid Sans", sans-serif;
+    color: #3f3f3f;
+}
+
+
+a,
+a:active,
+a:visited,
+a:hover {
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: inherit !important;
+}
+
+a {
+    color: #3f3f3f;
+}
+
+
+/* suggestion on font awesome issues https://github.com/FortAwesome/Font-Awesome/issues/2528 */
+
+@keyframes fa-blink {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    -webkit-animation: fa-blink .75s linear infinite;
+    -moz-animation: fa-blink .75s linear infinite;
+    -ms-animation: fa-blink .75s linear infinite;
+    -o-animation: fa-blink .75s linear infinite;
+    animation: fa-blink .75s linear infinite;
+}
+
+.navbar-brand img {
+    max-width: 3vw;
+}
+
+#messages-wrapper {
+    top: 10px;
+    right: 10px;
+    width: 15vw;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand img {
+        max-width: 10vw;
+    }
+    #messages-wrapper {
+        width: 95%;
+        right: 10px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .navbar-brand img {
+        max-width: 6vw;
+    }
+    #messages-wrapper {
+        width: 65%;
+        right: 10px;
+    }
+}

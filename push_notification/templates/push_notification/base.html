@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <title>{% block title %}Push Notifications Server - Django python{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/libs/bootstrap-4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/libs/fontawesome-5.11.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/push_notification/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="/media/favicon.ico" />
+    {% block css %}{% endblock %}
+</head>
+
+<body id="body" class="bg-light" data-current-path="{{ request.get_full_path }}">
+    {% block body %}
+    <div id="messages-wrapper" class="position-absolute fade show" style="z-index: 1055;">
+        {% for message in messages %}
+        <div class="alert shadow alert-{{ message.tags }}">
+            {% if message.pk %}
+            <a type="button" class="close" close-href="{% url 'message_mark_read' message_id=message.pk %}"
+                data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </a>
+            {% else %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {% endif %}
+            <h5 class="alert-heading">{{ message.tags|title }}</h5>
+            <span class="">{{ message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="container-fluid h-100">
+        <div class="row no-gutters justify-content-center">
+            <div class="col-12 col-lg-8">
+                <header class="row no-gutters justify-content-center">
+                    <div class="col-12">
+                        {% block header %} {% endblock %}
+                    </div>
+                </header>
+                <main class="row no-gutters justify-content-center h-100">
+                    <div class="col-12">
+                        {% block main %} {% endblock %}
+                    </div>
+                </main>
+                <footer class="row no-gutters">
+                    <div class="col-12">
+                        {% block footer %} {% endblock %}
+                        <section class="row justify-content-center">
+                            <div class="col-12 col-md-6 col-xl-5 text-center py-4 text-muted">
+                                made with <i class="fas fa-heart text-danger"></i> by
+                                <a href="https://www.greenponik.com" target="_blank">
+                                    <small>MkLHX</small>
+                                </a>
+                                ©2020
+                            </div>
+                        </section>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <script type="text/javascript" src="/static/libs/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/libs/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/libs/fontawesome-5.11.2/js/all.js"></script>
+    <script type="text/javascript" async defer src="/static/push_notification/js/app.js"></script>
+    {% block javascript %}{% endblock %}
+</body>
+
+</html>

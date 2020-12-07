@@ -1,0 +1,27 @@
+# Compiled source
+*.pyc
+*/__pycache__/*
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
+
+# remove virtualenv
+venv
+
+# ide folders
+.vscode
+
+# folders
+/static
+/media
+*/migrations/*
+
+# ignore these files device side
+*.log
+
+.env
+
+*/node_modules/*
